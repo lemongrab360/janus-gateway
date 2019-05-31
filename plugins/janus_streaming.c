@@ -4646,7 +4646,7 @@ janus_streaming_mountpoint *janus_streaming_create_rtp_source(
 			}
 		}
 		if(simulcast) {
-			if(vport2 > 0) {
+			if(vport2 >= 0) {
 				video_fd[1] = janus_streaming_create_fd(vport2, vmcast ? inet_addr(vmcast) : INADDR_ANY, viface,
 					"Video", "video", name ? name : tempname);
 				if(video_fd[1] < 0) {
@@ -4664,7 +4664,7 @@ janus_streaming_mountpoint *janus_streaming_create_rtp_source(
 				}
 				vport2 = janus_streaming_get_fd_port(video_fd[1]);
 			}
-			if(vport3 > 0) {
+			if(vport3 >= 0) {
 				video_fd[2] = janus_streaming_create_fd(vport3, vmcast ? inet_addr(vmcast) : INADDR_ANY, viface,
 					"Video", "video", name ? name : tempname);
 				if(video_fd[2] < 0) {
